@@ -4,7 +4,7 @@
 
 ```text
 训练完成
-四套 Step85000 跨作业评测已启动，最终结果需到评测作业确认
+四套 Step85000 正式评测完成：1436/2000，71.8%
 ```
 
 ## 实验身份
@@ -119,7 +119,7 @@ step_100000
 EXPERIMENT.md
 ```
 
-## Step85000 跨作业评测
+## Step85000 跨作业评测（实验 8）
 
 已合并并备份：
 
@@ -152,17 +152,32 @@ replan 需统一使用 10
 spatial smoke=1/1
 ```
 
-完整评测在另一作业启动，日志：
+完整评测日志：
 
 ```text
 /root/wuqingman/logs/eval_step85000_full.log
 ```
 
-最终结果未同步回当前作业，需后续更新本文档。
+正式结果：
+
+| Suite | Successes | Episodes | Success rate |
+|---|---:|---:|---:|
+| libero_spatial | 370 | 500 | 74.0% |
+| libero_object | 453 | 500 | 90.6% |
+| libero_goal | 344 | 500 | 68.8% |
+| libero_10 | 269 | 500 | 53.8% |
+| **Overall** | **1436** | **2000** | **71.8%** |
+
+评测实验文档：[`8-eval_exp6_step85000.md`](./8-eval_exp6_step85000.md)
+
+逐任务原始结果：
+
+```text
+results/8-eval_exp6_step85000/summary.csv
+```
 
 ## 后续
 
-1. 获取 Step85000 四套成功率。
-2. 合并并备份 Step100000。
-3. 使用相同 replan=10 评测 Step100000。
-4. 与实验 7 Gen+Act 和实验 10 FastWAM-aligned 对比。
+1. 合并并备份 Step100000。
+2. 使用相同评测协议评测 Step100000。
+3. 与实验 7 Gen+Act 和实验 10 FastWAM-aligned 对比。
