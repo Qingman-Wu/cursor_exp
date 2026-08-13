@@ -62,6 +62,11 @@
    - batch/GPU 保持 32，global batch 保持 256
    - 8 卡 20-step smoke 已通过，正式训练待启动
 
+11. [`18-0728_18-update-exp14`](./18-0728_18-update-exp14.md)
+   - 复现实验 10 的 FastWAM-aligned Spatial No-Gen，并修复实验 14 的 LR scheduler 推进 bug
+   - `cosine_with_min_lr + 5% warmup + min_lr_ratio=0.01 + weight_decay=0.01`
+   - 训练与正式评测结果待补
+
 ## 不收录为正式实验
 
 以下仅为 smoke/debug，不单独建文档：
