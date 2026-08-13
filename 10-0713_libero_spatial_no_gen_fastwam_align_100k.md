@@ -1,5 +1,15 @@
 # 10-0713_libero_spatial_no_gen_fastwam_align_100k
 
+## Material Passport
+
+```text
+artifact_type=experiment_result
+experiment_id=10
+status=completed
+verification_status=ANALYZED_FROM_TRAINING_AND_EVALUATION_RECORDS
+recorded_at=2026-08-13
+```
+
 ## 状态
 
 ```text
@@ -25,6 +35,26 @@ SwanLab=https://swanlab.cn/@woovine/EgoWAM-Native/runs/dudp2hxy
 从 88.0% 进一步提升。
 
 这是组合消融，不用于区分每个变量的独立贡献。
+
+## FastWAM-aligned contract
+
+本实验整体替换数据与 rollout contract，具体包括：
+
+```text
+dataset_root=/root/wuqingman/datasets/nvidia/LIBERO_LeRobot_v3/libero_spatial
+dataset_format=LeRobot v3
+observation_image_keys=image,wrist_image
+num_images_expected=2
+frame_sampling_stride=1
+action_horizon=32
+action_exec_horizon=10
+drop_incomplete_action_chunks=false
+delta_action_dim_mask=true,true,true,true,true,true,false
+normalization=min/max
+normalization_eps=1e-8
+```
+
+训练在 run 目录生成 FastWAM-compatible `dataset_stats.json`，评测必须使用同一文件。
 
 ## 相对实验 5 的变化
 
@@ -213,6 +243,15 @@ step_90000:  454/500 = 90.8%  best
 step_100000: 435/500 = 87.0%
 ```
 
+此前已完成的中间 checkpoint 评测：
+
+```text
+step_50000: 431/500 = 86.2%
+step_70000: 413/500 = 82.6%
+```
+
+因此当前已知结果覆盖 50k、70k、80k、90k、100k 五个 checkpoint；其中 90k 为最佳。
+
 相对实验 5 `440/500 = 88.0%`：
 
 ```text
@@ -242,6 +281,16 @@ run_eval_exp10_parallel.sh
 TRAIN_LAUNCHER.sh
 CODE_COMMIT.txt
 SHA256SUMS
+```
+
+评测输出：
+
+```text
+eval/libero_step50000_spatial_50trials_wait30/summary.csv
+eval/libero_step70000_spatial_50trials_wait30/summary.csv
+eval/libero_step80000_spatial_50trials_wait30/summary.csv
+eval/libero_step90000_spatial_50trials_wait30/summary.csv
+eval/libero_step100000_spatial_50trials_wait30/summary.csv
 ```
 
 ## 后续
