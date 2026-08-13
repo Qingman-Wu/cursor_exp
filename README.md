@@ -84,7 +84,12 @@
 15. [`20-0729_libero_spatial_gen_act_fastwam_optim_align_100k`](./20-0729_libero_spatial_gen_act_fastwam_optim_align_100k.md)
    - 实验 18 基线加入压缩 Generation expert 与未来图像联合训练
    - `gen_reads_und_action`，Action 不读取 Generation
-   - 训练与正式评测结果待补
+   - 五个 checkpoint 已评测；100k 最佳，为 427/500 = 85.4%
+
+16. [`21-0802_eval_exp20`](./21-0802_eval_exp20.md)
+   - 评测实验 20 的 20k、40k、60k、80k、100k checkpoints
+   - 成功率为 63.4% / 79.0% / 78.2% / 83.8% / 85.4%
+   - 共 2500 episodes；逐 task CSV 待补
 
 ## 不收录为正式实验
 

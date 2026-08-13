@@ -5,8 +5,8 @@
 ```text
 artifact_type=experiment_result
 experiment_id=20
-status=training_configuration_recorded_results_pending
-verification_status=ANALYZED_FROM_PROVIDED_TRAINING_MATERIAL
+status=training_artifacts_available_evaluation_completed
+verification_status=ANALYZED_FROM_TRAINING_AND_EVALUATION_MATERIALS
 recorded_at=2026-08-13
 ```
 
@@ -14,7 +14,8 @@ recorded_at=2026-08-13
 
 ```text
 训练设计、固定代码版本与启动方式已登记
-训练完成、最终 loss、checkpoint 和正式闭环评测：待补
+训练 checkpoint 已确认覆盖至 100k；最终训练日志/loss 待补
+正式闭环评测：五个 checkpoint 已完成
 machine=wqm2
 ```
 
@@ -130,14 +131,14 @@ bash training/scripts/train_native_libero_spatial_gen_act_fastwam_optim_align_10
 
 ## 正式评测要求
 
-评测必须构建与 checkpoint 一致的 Generation expert。闭环推理是否禁用 Generation forward、
-使用的 checkpoint、wait steps、action-flow seed、reset protocol 和每 task trials 数尚未在当前
-材料中给出，不能从 Exp18/22 自动继承。
+评测构建与 checkpoint 一致的 Generation expert，并使用 `GENERATION_IMAGE_SOURCE=zeros`、
+10 inference steps、action execution horizon 10、wait steps 5 和 50 trials/task。五点结果见
+[`21-0802_eval_exp20.md`](./21-0802_eval_exp20.md)。
 
 ## 待补材料
 
 1. 训练开始/结束时间、实际退出码、最终 step、loss、LR 和 grad norm。
 2. checkpoint 列表、SHA256、`dataset_stats.json` 和是否成功导出 HF 权重。
 3. future-image horizon、image flow parameterization 与 image/action loss 系数。
-4. 正式评测脚本、模型构造参数、action-flow seed 和 50 trials/task `summary.csv`。
+4. 正式评测的逐 task CSV、模型构造完整参数和 action-flow seed。
 5. 同 Exp18 checkpoint/评测协议下的 paired comparison。
