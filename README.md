@@ -96,6 +96,11 @@
    - 保留冻结 Generation forward 与 image auxiliary loss，使其梯度回传到 Action
    - 训练与正式评测结果待补
 
+18. [`27-0811_libero_spatial_vjepa_align_100k`](./27-0811_libero_spatial_vjepa_align_100k.md)
+   - 实验 20 基线增加 frozen V-JEPA teacher 与 Generation 第 8 层 REPA 对齐
+   - t+32、cosine loss、coef=0.05、5000-step warmup，保留 image/action loss
+   - 5090 真实 batch/cache smoke 已通过；正式训练与评测待补
+
 ## 不收录为正式实验
 
 以下仅为 smoke/debug，不单独建文档：
