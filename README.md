@@ -81,6 +81,11 @@
    - Full-context 峰值为 step 60000：425/500 = 85.0%
    - 全部 2500 episodes 有汇总结果；逐 task CSV 待补
 
+15. [`20-0729_libero_spatial_gen_act_fastwam_optim_align_100k`](./20-0729_libero_spatial_gen_act_fastwam_optim_align_100k.md)
+   - 实验 18 基线加入压缩 Generation expert 与未来图像联合训练
+   - `gen_reads_und_action`，Action 不读取 Generation
+   - 训练与正式评测结果待补
+
 ## 不收录为正式实验
 
 以下仅为 smoke/debug，不单独建文档：
