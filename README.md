@@ -65,7 +65,12 @@
 11. [`18-0728_18-update-exp14`](./18-0728_18-update-exp14.md)
    - 复现实验 10 的 FastWAM-aligned Spatial No-Gen，并修复实验 14 的 LR scheduler 推进 bug
    - `cosine_with_min_lr + 5% warmup + min_lr_ratio=0.01 + weight_decay=0.01`
-   - 训练与正式评测结果待补
+   - 评测权重已确认覆盖至 100k；训练结束日志和最终 loss 待补
+
+12. [`22-0802_22-eval-exp18`](./22-0802_22-eval-exp18.md)
+   - 评测实验 18 的 20k、40k、60k、80k、100k checkpoints
+   - 已有结果：68.6% / 79.8% / 85.6%；80k 与 100k 待补
+   - 当前已归档 1500 episodes，协议为 OSMesa、replan=10、inference steps=10、wait steps=5
 
 ## 不收录为正式实验
 

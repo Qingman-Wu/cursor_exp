@@ -1,0 +1,12 @@
+benchmark,task_name,phase,successes,total,success_rate,success_ratio
+libero,libero_spatial:0,,35,50,0.7,35/50
+libero,libero_spatial:1,,41,50,0.82,41/50
+libero,libero_spatial:2,,44,50,0.88,44/50
+libero,libero_spatial:3,,42,50,0.84,42/50
+libero,libero_spatial:4,,45,50,0.9,45/50
+libero,libero_spatial:5,,44,50,0.88,44/50
+libero,libero_spatial:6,,47,50,0.94,47/50
+libero,libero_spatial:7,,48,50,0.96,48/50
+libero,libero_spatial:8,,37,50,0.74,37/50
+libero,libero_spatial:9,,45,50,0.9,45/50
+libero,**overall**,,428,500,0.856,428/500
