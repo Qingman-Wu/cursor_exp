@@ -91,6 +91,11 @@
    - 成功率为 63.4% / 79.0% / 78.2% / 83.8% / 85.4%
    - 共 2500 episodes；逐 task CSV 待补
 
+17. [`24-0810_libero_spatial_full_u1_frozen_gen_act_fastwam_optim_align_100k`](./24-0810_libero_spatial_full_u1_frozen_gen_act_fastwam_optim_align_100k.md)
+   - 实验 20 基线改为全宽 4096 U1 Understanding/Generation 并冻结，仅训练 Action
+   - 保留冻结 Generation forward 与 image auxiliary loss，使其梯度回传到 Action
+   - 训练与正式评测结果待补
+
 ## 不收录为正式实验
 
 以下仅为 smoke/debug，不单独建文档：
