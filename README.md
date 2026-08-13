@@ -32,27 +32,32 @@
    - 四套 LIBERO，50 trials/task，共 6000 episodes
    - Overall：55.0% / 67.55% / 60.2%；最佳 checkpoint 为 step 90000
 
+6. [`11-0715_eval_exp10`](./11-0715_eval_exp10.md)
+   - 评测实验 10 的 FastWAM-aligned No-Gen Spatial checkpoints
+   - 80k / 90k / 100k 各 500 episodes；step 90000 最佳，为 90.8%
+   - 后续定位出 hard reset 多相机与场景一致性问题；修复后的 92% 仅为 100-episode 补充诊断
+
 ### 中止或被替代
 
-6. [`5-0709_libero_spatial_no_gen_stable_10k`](./5-0709_libero_spatial_no_gen_stable_10k.md)
+7. [`5-0709_libero_spatial_no_gen_stable_10k`](./5-0709_libero_spatial_no_gen_stable_10k.md)
    - 原计划 10k，实际只运行到 step 724
    - 被正式 50k 实验替代
 
-7. [`6-0710_libero_all_no_gen_stable_100k`](./6-0710_libero_all_no_gen_stable_100k.md)
+8. [`6-0710_libero_all_no_gen_stable_100k`](./6-0710_libero_all_no_gen_stable_100k.md)
    - 包含 `libero_90` 的五套训练
    - 运行到 step 11,364 后主动停止
    - 原因：`libero_90` 占比过高，不符合标准 VLA 四套协议
 
 ### 跨作业运行 / 状态待确认
 
-8. [`7-0712_libero_4suite_gen_act_stable_100k`](./7-0712_libero_4suite_gen_act_stable_100k.md)
+9. [`7-0712_libero_4suite_gen_act_stable_100k`](./7-0712_libero_4suite_gen_act_stable_100k.md)
    - 标准四套 LIBERO，Generation + Action，100k
    - 首次运行到 step 21,805 后外部中断，随后从 step 20,000 恢复
    - 已完成 100,000 steps
 
 ### 运行中
 
-9. [`14-0723_libero_spatial_no_gen_fastwam_optim_align_100k`](./14-0723_libero_spatial_no_gen_fastwam_optim_align_100k.md)
+10. [`14-0723_libero_spatial_no_gen_fastwam_optim_align_100k`](./14-0723_libero_spatial_no_gen_fastwam_optim_align_100k.md)
    - 以实验 10 为基线，对齐 FastWAM 的 LR schedule、weight decay 和 checkpointing
    - batch/GPU 保持 32，global batch 保持 256
    - 8 卡 20-step smoke 已通过，正式训练待启动
