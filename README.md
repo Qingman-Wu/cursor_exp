@@ -27,31 +27,30 @@
    - 最终训练 loss：0.0027
    - 正式评测待完成
 
+5. [`12-0716_eval_exp7`](./12-0716_eval_exp7.md)
+   - 评测实验 7 Gen+Act 的 step 80000、90000、100000
+   - 四套 LIBERO，50 trials/task，共 6000 episodes
+   - Overall：55.0% / 67.55% / 60.2%；最佳 checkpoint 为 step 90000
+
 ### 中止或被替代
 
-5. [`5-0709_libero_spatial_no_gen_stable_10k`](./5-0709_libero_spatial_no_gen_stable_10k.md)
+6. [`5-0709_libero_spatial_no_gen_stable_10k`](./5-0709_libero_spatial_no_gen_stable_10k.md)
    - 原计划 10k，实际只运行到 step 724
    - 被正式 50k 实验替代
 
-6. [`6-0710_libero_all_no_gen_stable_100k`](./6-0710_libero_all_no_gen_stable_100k.md)
+7. [`6-0710_libero_all_no_gen_stable_100k`](./6-0710_libero_all_no_gen_stable_100k.md)
    - 包含 `libero_90` 的五套训练
    - 运行到 step 11,364 后主动停止
    - 原因：`libero_90` 占比过高，不符合标准 VLA 四套协议
 
 ### 跨作业运行 / 状态待确认
 
-7. [`7-0712_libero_4suite_gen_act_stable_100k`](./7-0712_libero_4suite_gen_act_stable_100k.md)
+8. [`7-0712_libero_4suite_gen_act_stable_100k`](./7-0712_libero_4suite_gen_act_stable_100k.md)
    - 标准四套 LIBERO，Generation + Action，100k
    - 首次运行到 step 21,805 后外部中断，随后从 step 20,000 恢复
    - 已完成 100,000 steps
 
 ### 运行中
-
-8. [`12-0716_eval_exp7`](./12-0716_eval_exp7.md)
-   - 实验 7 Gen+Act 的 step 80000、step 90000 与 step 100000 正式四套 LIBERO 评测
-   - 三个 checkpoint 当前同时共享 8×H20
-   - 50 trials/task，replan=10，共 6000 episodes
-   - 启动前三个 checkpoint smoke 均为 1/1 success
 
 9. [`14-0723_libero_spatial_no_gen_fastwam_optim_align_100k`](./14-0723_libero_spatial_no_gen_fastwam_optim_align_100k.md)
    - 以实验 10 为基线，对齐 FastWAM 的 LR schedule、weight decay 和 checkpointing
