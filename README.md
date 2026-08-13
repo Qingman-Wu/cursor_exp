@@ -72,6 +72,11 @@
    - 已有结果：68.6% / 79.8% / 85.6%；80k 与 100k 待补
    - 当前已归档 1500 episodes，协议为 OSMesa、replan=10、inference steps=10、wait steps=5
 
+13. [`19-libero_spatial_no_gen_full_context_fastwam_optim`](./19-libero_spatial_no_gen_full_context_fastwam_optim.md)
+   - 实验 18 的 attention 消融：Understanding `isolated -> full`
+   - 其余 optimizer、数据、模型配置按附件计划保持一致
+   - 训练与正式评测结果待补；launcher 是否严格只训练 Spatial 待确认
+
 ## 不收录为正式实验
 
 以下仅为 smoke/debug，不单独建文档：
