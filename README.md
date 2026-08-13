@@ -101,6 +101,11 @@
    - t+32、cosine loss、coef=0.05、5000-step warmup，保留 image/action loss
    - 5090 真实 batch/cache smoke 已通过；正式训练与评测待补
 
+19. [`30-0812_libero_spatial_und_to_gen_to_action_joint_100k`](./30-0812_libero_spatial_und_to_gen_to_action_joint_100k.md)
+   - 实验 20 基线改为 `Und -> Gen -> Action` attention 与 persistent Gen/Action joint denoising
+   - 去除 zero-image placeholder；5090 tiny/真实 checkpoint smoke 已通过
+   - 正式训练与闭环结果待补
+
 ## 不收录为正式实验
 
 以下仅为 smoke/debug，不单独建文档：
