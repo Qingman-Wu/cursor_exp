@@ -1,0 +1,6 @@
+checkpoint,successes,total,success_rate,success_ratio,trend
+step_20000,376,500,0.752,376/500,
+step_40000,382,500,0.764,382/500,up
+step_60000,425,500,0.85,425/500,peak
+step_80000,411,500,0.822,411/500,down
+step_100000,412,500,0.824,412/500,flat

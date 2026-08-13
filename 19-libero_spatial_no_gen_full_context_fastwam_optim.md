@@ -5,8 +5,8 @@
 ```text
 artifact_type=experiment_result
 experiment_id=19
-status=training_configuration_recorded_results_pending
-verification_status=ANALYZED_FROM_PROVIDED_LAUNCH_MATERIAL
+status=training_artifacts_available_evaluation_completed
+verification_status=ANALYZED_FROM_TRAINING_AND_EVALUATION_MATERIALS
 recorded_at=2026-08-13
 ```
 
@@ -15,8 +15,9 @@ recorded_at=2026-08-13
 ```text
 训练配置已登记
 运行时长：约 28h（附件记录）
-训练完成、checkpoint、最终 loss：待补
-正式 LIBERO 评测：待补
+训练 checkpoint：已确认覆盖 20k、40k、60k、80k、100k
+训练结束日志、最终 loss：待补
+正式 LIBERO 评测：已完成五个 checkpoint
 ```
 
 附件包含启动脚本与 SwanLab run 链接，但没有训练结束日志、实际退出码、checkpoint 清单、
@@ -93,8 +94,11 @@ Exp22 的 60k 结果为 `428/500=85.6%`，Exp10 的 step 90000 为 `454/500=90.8
 
 ## 当前结论边界与待补
 
-目前只能确认 Exp19 的预设 treatment 是 `isolated -> full`，不能确认实际训练是否完成，
-也不能确认 launcher 是否真的只使用 Spatial 数据。
+Exp23 已确认 Exp19 的五个 checkpoint 均可被转换并完成闭环评测，full attention 在评测时
+通过 CLI 显式传入。训练最终日志/loss 以及训练 launcher 是否严格只使用 Spatial 数据仍未
+由当前材料独立验证。
 
-待补：实际训练日志与退出码；有效样本数；最终 LR/loss/grad norm；checkpoint 列表和 SHA256；
-正式 50-trial/task 评测 CSV；与 Exp18 相同 init state 和 action-flow seed 的配对评测。
+评测结果见 [`23-0802_23-eval-exp19.md`](./23-0802_23-eval-exp19.md)。
+
+待补：实际训练日志与退出码；有效样本数；最终 LR/loss/grad norm；checkpoint SHA256；
+逐 task 评测 CSV；与 Exp18 相同 init state 和 action-flow seed 的配对评测。

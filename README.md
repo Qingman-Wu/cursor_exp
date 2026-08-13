@@ -75,7 +75,11 @@
 13. [`19-libero_spatial_no_gen_full_context_fastwam_optim`](./19-libero_spatial_no_gen_full_context_fastwam_optim.md)
    - 实验 18 的 attention 消融：Understanding `isolated -> full`
    - 其余 optimizer、数据、模型配置按附件计划保持一致
-   - 训练与正式评测结果待补；launcher 是否严格只训练 Spatial 待确认
+
+14. [`23-0802_23-eval-exp19`](./23-0802_23-eval-exp19.md)
+   - 评测实验 19 的 20k、40k、60k、80k、100k checkpoints
+   - Full-context 峰值为 step 60000：425/500 = 85.0%
+   - 全部 2500 episodes 有汇总结果；逐 task CSV 待补
 
 ## 不收录为正式实验
 
