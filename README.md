@@ -106,6 +106,12 @@
    - 去除 zero-image placeholder；5090 tiny/真实 checkpoint smoke 已通过
    - 正式训练与闭环结果待补
 
+20. [`36-0814_libero_spatial_und_to_gen_to_action_vjepa_align_100k`](./36-0814_libero_spatial_und_to_gen_to_action_vjepa_align_100k.md)
+   - 实验 30 基线增加 Exp27 同配置的 frozen V-JEPA Generation alignment
+   - 保持 `Und -> Gen -> Action` 与 joint denoising；V-JEPA 只在训练期使用
+   - `rtx5090-180` 完整测试 `72 passed`，joint + V-JEPA CUDA smoke 已通过
+   - 正式训练与闭环结果待补
+
 ## 不收录为正式实验
 
 以下仅为 smoke/debug，不单独建文档：
