@@ -62,8 +62,11 @@ lambda_vjepa: step 0–5000 从 0 线性增加到 0.05，之后保持 0.05
 ## 可复现实验配置
 
 ```text
-code_base_commit=df97591b9eff70f9c015cd555e475f3cebed5f4a (Exp30 base)
-exp36_implementation_commit=2db9b52 (Ego-WAM/egowam-stable)
+code_repository=https://github.com/Zheng-Chong/Ego-WAM.git
+code_branch=egowam-stable
+exp36_implementation_commit=2db9b526e0c220ed2d4324057cda4b75428e02fe
+exp30_baseline_commit=df97591b9eff70f9c015cd555e475f3cebed5f4a
+future_target=t+32 future keyframe
 dataset=nvidia/LIBERO_LeRobot_v3/libero_spatial
 effective_samples=52,970
 frame_sampling_stride=1
@@ -83,6 +86,9 @@ SwanLab=not started
 formal_checkpoint=not produced
 formal_training/evaluation=not started
 ```
+
+正式训练必须 checkout 上述 Exp36 完整 commit SHA。分支名只用于定位，不能替代 commit；如果训练时
+`git rev-parse HEAD` 与记录不同，必须保存实际 SHA 和相对差异，不能沿用本实验结果登记。
 
 ## 代码与入口
 
