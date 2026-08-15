@@ -110,7 +110,8 @@
    - 实验 30 基线增加 Exp27 同配置的 frozen V-JEPA Generation alignment
    - 保持 `Und -> Gen -> Action` 与 joint denoising；V-JEPA 只在训练期使用
    - `rtx5090-180` 完整测试 `72 passed`，joint + V-JEPA CUDA smoke 已通过
-   - 正式训练与闭环结果待补
+   - 2026-08-16 已在 8×H20 启动正式训练；[SwanLab run](https://swanlab.cn/@woovine/EgoWAM-Native/runs/2wzu3ksl)
+   - 闭环结果待补
 
 ## 不收录为正式实验
 

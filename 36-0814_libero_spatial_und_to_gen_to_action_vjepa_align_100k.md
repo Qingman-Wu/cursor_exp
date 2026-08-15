@@ -5,10 +5,10 @@
 ```text
 artifact_type=experiment_design
 experiment_id=36
-status=implementation_smoke_verified_training_results_pending
-verification_status=ANALYZED_FROM_DESIGN_TESTS_AND_RTX5090_SMOKE
+status=formal_training_running
+verification_status=FORMAL_H20_TRAINING_STARTED_AND_FIRST_STEPS_VERIFIED
 recorded_at=2026-08-14
-last_verified_at=2026-08-15
+last_verified_at=2026-08-16
 ```
 
 ## 实验定义
@@ -82,9 +82,10 @@ schedule=cosine_with_min_lr, warmup_ratio=0.05, min_lr_ratio=0.01
 target_steps=100000
 save_steps=5000
 action_initialization=random (init_action_from_gen=false)
-SwanLab=not started
+SwanLab=https://swanlab.cn/@woovine/EgoWAM-Native/runs/2wzu3ksl
 formal_checkpoint=not produced
-formal_training/evaluation=not started
+formal_training=running
+formal_evaluation=not started
 ```
 
 正式训练必须 checkout 上述 Exp36 完整 commit SHA。分支名只用于定位，不能替代 commit；如果训练时
@@ -143,12 +144,42 @@ gradient_norm=7.279457
 Exp20/30 checkpoint 未找到。因此 CUDA smoke 只覆盖 tiny model 的 joint + alignment 数值路径，不构成
 真实数据、真实 8B checkpoint 或正式 LIBERO 闭环结果。
 
+## 2026-08-16 正式训练启动记录
+
+```text
+machine=Alibaba Cloud DSW, 8 x NVIDIA H20 96GB
+formal_start_time=2026-08-16 00:34:19 UTC+8
+tmux_session=exp36_pipeline
+code_checkout=/root/wuqingman/Ego-WAM-exp36-filtered
+code_commit=2db9b526e0c220ed2d4324057cda4b75428e02fe
+code_status=clean detached HEAD
+JEPA-WAM_commit=8452205c49c3a90df6c3c46e184fd6fa38890e70
+V-JEPA2_commit=204698b45b3712590f06245fbfba32d3be539812
+teacher_sha256=7ea9b7cb4a75d10644a8a8d42cff9e177b10dca8f02173f0eaf2b0bed82838c6
+cache=/root/wuqingman/datasets/vjepa_cache/libero_spatial
+cache_shards=432/432
+cache_size=117GB
+SwanLab_run=https://swanlab.cn/@woovine/EgoWAM-Native/runs/2wzu3ksl
+output=/root/wuqingman/RUN/36-0814_libero_spatial_und_to_gen_to_action_vjepa_align_100k
+log=/root/wuqingman/logs/36-0814_libero_spatial_und_to_gen_to_action_vjepa_align_100k.log
+cache_log=/root/wuqingman/logs/36-0814_libero_spatial_und_to_gen_to_action_vjepa_align_100k_vjepa_cache.log
+```
+
+启动日志已确认 `und_to_gen_to_action`、isolated Understanding、1024/1024/1024、
+AdamW、batch/GPU=32、cosine-with-min-LR、5000-step warmup，以及与 Exp27 相同的
+layer-8、future-keyframe、patch-token、coef=0.05 V-JEPA alignment contract。模型为
+2.700B trainable parameters，其中 V-JEPA projector 3.15M。8 卡约占用 59GB/GPU，
+正式训练和 SwanLab 云端记录均已进入有效 step。
+
+严格来说，Exp36 和 Exp27 的 V-JEPA/REPA 实现及训练目标相同，训练侧主要 treatment 是
+attention topology；但闭环评测时 Exp36 还继承 Exp30 的 persistent joint
+Generation/Action solver 和 `generation_image_source=none`。因此最终 Exp36-vs-Exp27
+闭环差异不能全部归因于 attention mask，除非补充匹配推理 solver 的独立消融。
+
 ## 待办
 
 ```text
-prepare/verify full V-JEPA cache
-record teacher checkpoint SHA256
-launch 8-GPU formal training
+monitor 8-GPU formal training through the first 5000 steps
 record SwanLab run and final loss/LR/grad norm
 record checkpoint list and SHA256
 run 10-task × 50-trial closed-loop evaluation
